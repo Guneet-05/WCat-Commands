@@ -67,7 +67,7 @@ let contentArr = content.split("\r\n")
 let doesSExist = commandsArr.includes("-s")
 
 if(doesSExist) {
-    for(let i=1;i<contentArr.length;i++) {
+    for(let i=1;i<contentArr.length;i++) { //adding nulls to all the new line characters excet the first
         if(contentArr[i] == "" && contentArr[i-1] == "") {
              contentArr[i] = null
         } else if(contentArr[i] == "" && contentArr[i-1] == null) {
@@ -77,13 +77,22 @@ if(doesSExist) {
 
     let sContentArr = []
 
-    for(let i=0;i<contentArr.length;i++) {
+    for(let i=0;i<contentArr.length;i++) { //taking all the non-nulls to make up the content
         if(contentArr[i] !== null) {
             sContentArr.push(contentArr[i])
         }
     }
 
     contentArr = sContentArr
+}
+
+//Implementing the -n command
+
+let doesNExist = commandsArr.includes('-n')
+if(doesNExist) {
+    for(let i=0;i<contentArr.length;i++) {
+        contentArr[i] = (i+1) + " " +  contentArr[i] //adding numbers from 1 to N to 0 to N-1 lines 
+    }
 }
 
 console.log(contentArr.join('\n'))
