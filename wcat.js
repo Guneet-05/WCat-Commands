@@ -18,14 +18,15 @@ Miscellaneous Commands: These are a combination of two or more than 2 of the abo
      The -n and -b commands cannot be run together.
 */
 
+const fs = require('fs')
 let inputArr = process.argv.slice(2)
 
-//seperate options and files
+//seperate commands and files
 
 let commandsArr = [] 
 let filesArr = []
 
-//option start with a hyphen (-)
+//commands start with a hyphen (-)
 for(let i=0;i<inputArr.length;i++) {
     if(inputArr[i].startsWith("-")) {
         commandsArr.push(inputArr[i])
@@ -33,4 +34,26 @@ for(let i=0;i<inputArr.length;i++) {
         filesArr.push(inputArr[i])
     }
 }
+
+//check whether all the filePaths entered are valid or not
+
+for(let i=0;i<filesArr.length;i++) {
+   let fileExists = fs.existsSync(filesArr[i])
+   if(fileExists == false) {
+       console.log('The file ' + filesArr[i] +' does not exist. Please enter a valid file path')
+       return
+   }
+}
+
+//both -b and -n cannot be present together
+let areBothPresent = commandsArr.includes('-b') && commandsArr.includes('-n') 
+
+if(areBothPresent) {
+   console.log('Both the commands -n and -b should not be present. Enter another command with either one of them')
+   return; 
+}
+
+
+
+
 
