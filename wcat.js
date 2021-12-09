@@ -95,8 +95,20 @@ if(doesNExist) {
     }
 }
 
-console.log(contentArr.join('\n'))
+// Implementing the -b command
 
+let doesBExist = commandsArr.includes('-b')
+if(doesBExist) {
+    let num = 0;
+    for(let i =0;i<contentArr.length;i++) {
+        if(contentArr[i] != '') { //adding numbering to a line only if it is not empty 
+            num++
+            contentArr[i] = num + " " + contentArr[i]
+        }
+    }
+}
+
+console.log(contentArr.join('\n'))
 
 
 
