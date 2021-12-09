@@ -53,6 +53,15 @@ if(areBothPresent) {
    return; 
 }
 
+//Implementing the reading commands
+
+let content = ""
+for(let i=0;i<filesArr.length;i++) {
+    let bufferContent = fs.readFileSync(filesArr[i])
+    content += bufferContent + "\r\n"
+}
+
+console.log(content)
 
 
 
