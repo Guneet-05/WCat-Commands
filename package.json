@@ -1,0 +1,23 @@
+{
+  "name": "wcat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wcat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guneet-05/WCat-Commands.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "wcat" : "wcat.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Guneet-05/WCat-Commands/issues"
+  },
+  "homepage": "https://github.com/Guneet-05/WCat-Commands#readme"
+}

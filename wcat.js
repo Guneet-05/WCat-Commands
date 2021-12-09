@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*****************************************WCAT COMMANDS****************************************/
 
 /* This project implements some commands that helps to read, write and modify some files.
