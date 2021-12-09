@@ -61,7 +61,34 @@ for(let i=0;i<filesArr.length;i++) {
     content += bufferContent + "\r\n"
 }
 
-console.log(content)
+//Implementing the -s command
+let contentArr = content.split("\r\n")
+
+let doesSExist = commandsArr.includes("-s")
+
+if(doesSExist) {
+    for(let i=1;i<contentArr.length;i++) {
+        if(contentArr[i] == "" && contentArr[i-1] == "") {
+             contentArr[i] = null
+        } else if(contentArr[i] == "" && contentArr[i-1] == null) {
+            contentArr[i] = null
+        }
+    }
+
+    let sContentArr = []
+
+    for(let i=0;i<contentArr.length;i++) {
+        if(contentArr[i] !== null) {
+            sContentArr.push(contentArr[i])
+        }
+    }
+
+    contentArr = sContentArr
+}
+
+console.log(contentArr.join('\n'))
+
+
 
 
 
